@@ -1,0 +1,57 @@
+{
+  "name": "github-page-starter",
+  "version": "1.0.0",
+  "description": "GitHub Page Starter",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "npm run clean && npm run build:js",
+    "build:js": "parcel build --no-content-hash ./src/index.tsx",
+    "build:js:watch": "parcel watch --no-content-hash ./src/index.tsx",
+    "lint": "eslint src/ --ext .ts,.tsx",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
+    "clean": "rm -rf ./assets/js",
+    "test": "jest"
+  },
+  "targets": {
+    "default": {
+      "distDir": "./assets/js",
+      "sourceMap": {
+        "inline": true
+      }
+    }
+  },
+  "browserslist": [
+    "last 1 chrome version",
+    "last 1 firefox version",
+    "last 1 safari version"
+  ],
+  "dependencies": {
+    "@chakra-ui/react": "^2.2.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "@types/react": "^18.0.15",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.31.0",
+    "@typescript-eslint/parser": "^5.31.0",
+    "eslint": "^8.20.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.30.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^28.1.3",
+    "parcel": "^2.6.2",
+    "prettier": "^2.7.1",
+    "process": "^0.11.10",
+    "ts-jest": "^28.0.7",
+    "typescript": "^4.7.4"
+  }
+}
