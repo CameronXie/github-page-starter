@@ -1,29 +1,24 @@
-import * as React from 'react';
-import {
-  ChakraProvider, Box, Grid, theme, Heading, Button,
-} from '@chakra-ui/react';
-import ColorModeSwitcher from './ColorModeSwitcher';
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import { AuthProvider } from './contexts/AuthProvider';
+import AuthRoute from './Auth';
+import Login from './views/Login';
+import Editor from './views/Editor';
 
-export function Greeting(name: string): string {
-  if (name.length < 1) {
-    return 'Hello!';
-  }
-
-  return `Hello ${name.charAt(0).toUpperCase() + name.slice(1).toLowerCase()}!`;
-}
-
-export function App() {
+export default function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="50vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <Heading fontSize="4xl">
-            {Greeting('WORLD')}
-          </Heading>
-        </Grid>
-        <Button size="lg" colorScheme="green">Start Coding</Button>
-      </Box>
+      <BrowserRouter>
+        <AuthProvider guestPath="/" authPath="/editor">
+          <Routes>
+            <Route index element={<Login />} />
+            <Route element={<AuthRoute />}>
+              <Route path="editor" element={<Editor />} />
+            </Route>
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     </ChakraProvider>
   );
 }

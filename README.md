@@ -1,9 +1,11 @@
 # GitHub Page Starter
 
-This sample project demonstrate a possible solution to build GitHub page with Jekyll and ReactJS.
+A GitHub file editor by using GitHub page starter.
 
 ## Page
-![Page Screen](docs/page-screen.png)
+![Page Screen](docs/login.png)
+
+![Page Screen](docs/update_file.png)
 
 ## Local Setup
 

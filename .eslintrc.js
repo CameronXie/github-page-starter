@@ -9,6 +9,7 @@ module.exports = {
     'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,8 +20,9 @@ module.exports = {
     project: './tsconfig.eslint.json',
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/jsx-props-no-spreading': 'off',
+    'prettier/prettier': 'error',
   },
 };
